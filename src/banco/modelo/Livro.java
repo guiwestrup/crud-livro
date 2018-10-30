@@ -10,8 +10,7 @@ public class Livro implements Imprimivel {
 	public Livro() {
 
 	}
-	public Livro(int id, String titulo, int anoPublicacao, String editora, Autor autor) {
-		this.id = id;
+	public Livro(String titulo, int anoPublicacao, String editora, Autor autor) {
 		this.titulo = titulo;
 		this.anoPublicacao = anoPublicacao;
 		this.editora = editora;

@@ -8,10 +8,9 @@ public class Autor implements Imprimivel {
 	
 	public Autor() { }
 	
-	public Autor(int id, String nome, long cpf) {
-		this.id = id;
-		this.nome = this.nome;
-		this.cpf = this.cpf;
+	public Autor(String nome, long cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
 	}
 	
 	public int getId() {

@@ -15,6 +15,7 @@ public class InterfaceLivroTexto extends InterfaceModeloTexto {
 	public InterfaceLivroTexto() {
 		super();
 		dao = new LivroDao();
+		autorDao = new AutorDao();
 	}
 	
 	private Livro obtemDadosLivro(Livro livro) {
@@ -22,19 +23,19 @@ public class InterfaceLivroTexto extends InterfaceModeloTexto {
 		System.out.print("Insira o título do livro: ");
 		String titulo = entrada.nextLine();
 		
-		System.out.println("Insira o ano de publicação (somente números): ");
+		System.out.print("Insira o ano de publicação (somente números): ");
 		int anoPublicacao = entrada.nextInt();
 		entrada.nextLine();
 		
-		System.out.println("Insira o nome da editora: ");
+		System.out.print("Insira o nome da editora: ");
 		String editora = entrada.nextLine();
 
-		System.out.println("Insira o id do autor: ");
+		System.out.print("Insira o id do autor: ");
 		int autor_id = entrada.nextInt();
 
 		Autor autor = autorDao.getByKey(autor_id);
 
-		Livro novoLivro = new Livro(0, titulo, anoPublicacao, editora, autor);
+		Livro novoLivro = new Livro(titulo, anoPublicacao, editora, autor);
 		
 		return novoLivro;
 	}

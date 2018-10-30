@@ -31,7 +31,7 @@ public class InterfaceAutorTexto extends InterfaceModeloTexto {
 		System.out.print("Insira o CPF: ");
 		long cpf = entrada.nextLong();
 
-		return new Autor(0, nome, cpf);
+		return new Autor(nome, cpf);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class InterfaceAutorTexto extends InterfaceModeloTexto {
 		System.out.println("Lista de autores");
 		System.out.println();
 		
-		System.out.println("id\tAgência\tNúmero\tSaldo\tID do Livro\tNome do Livro");
+		System.out.println("id\tNome\tCPF");
 		
 		for (Autor autor : autores) {
 			imprimeItem(autor);

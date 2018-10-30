@@ -12,8 +12,8 @@ import banco.modelo.Autor;
 
 public class AutorDao implements Dao<Autor> {
 
-	private static final String GET_BY_ID = "SELECT * FROM conta WHERE id = ?";
-	private static final String GET_ALL = "SELECT * FROM livro";
+	private static final String GET_BY_ID = "SELECT * FROM autor WHERE id = ?";
+	private static final String GET_ALL = "SELECT * FROM autor";
 	private static final String INSERT = "INSERT INTO autor (nome, cpf) "
 			+ "VALUES (?, ?)";
 	private static final String UPDATE = "UPDATE autor SET nome = ?, cpf = ? WHERE id = ?";
@@ -29,9 +29,10 @@ public class AutorDao implements Dao<Autor> {
 	
 	private void createTable() throws SQLException {
 	    final String sqlCreate = "CREATE TABLE IF NOT EXISTS autor"
-	            + "  (id           INTEGER,"
-	            + "   nome      VARCHAR(100),"
-	            + "   cpf   BIGINT)";
+	            + "  (id    INTEGER,"
+	            + "   nome  VARCHAR(100),"
+	            + "   cpf   BIGINT,"
+				+ " primary key(id))";
 	    
 	    Connection conn = DbConnection.getConnection();
 
@@ -55,7 +56,7 @@ public class AutorDao implements Dao<Autor> {
 	public List<Autor> getAll() {
 		Connection conn = DbConnection.getConnection();
 
-		List<Autor> clientes = new ArrayList<>();
+		List<Autor> autor = new ArrayList<>();
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -65,16 +66,16 @@ public class AutorDao implements Dao<Autor> {
 			rs = stmt.executeQuery(GET_ALL);
 
 			while (rs.next()) {
-				clientes.add(getAutorFromRS(rs));
+				autor.add(getAutorFromRS(rs));
 			}
 
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao obter todos os clientes.", e);
+			throw new RuntimeException("Erro ao obter todos os autores.", e);
 		} finally {
 			close(conn, stmt, rs);
 		}
 
-		return clientes;
+		return autor;
 	}
 	
 	@Override

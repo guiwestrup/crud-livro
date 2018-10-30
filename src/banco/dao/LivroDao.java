@@ -57,7 +57,7 @@ public class LivroDao implements Dao<Livro> {
 		livro.setTitulo( rs.getString("titulo") );
 		livro.setAnoPublicacao( rs.getInt("anoPublicacao"));
 		livro.setEditora( rs.getString("editora"));
-		livro.setAutor( new Autor( rs.getInt("autor_id"), rs.getString("nome"), rs.getLong("cpf")));
+		livro.setAutor( new Autor( rs.getString("nome"), rs.getLong("cpf")));
 		return livro;
     }
 	
